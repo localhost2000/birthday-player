@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@import 'tailwindcss';
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: black;
+  color: black;
+}
+
+main {
+  @apply relative flex w-full items-center justify-center gap-20 overflow-hidden p-10 max-[1400px]:h-full max-[1400px]:flex-col max-[1400px]:gap-10 min-[1400px]:h-screen;
+}
+
+button {
+  @apply cursor-pointer transition-transform duration-300 outline-none min-[1400px]:hover:scale-110;
+}
+
+.backdrop-cover {
+  @apply absolute -z-10 size-full animate-spin object-contain blur-xl brightness-75 transition-all duration-500 [animation-duration:44s];
+}
+
+.cover {
+  @apply aspect-square h-fit rounded-2xl shadow-2xl shadow-black/60 transition-transform duration-300 min-[1400px]:w-2/5 min-[1400px]:hover:scale-105;
+}
+
+.playlist {
+  @apply flex flex-col items-end gap-4 text-xl font-bold text-white max-[1400px]:items-center min-[1400px]:w-1/5;
+}
+
+.controls {
+  @apply flex items-center justify-start gap-8 font-bold text-black min-[1400px]:w-1/5;
+}
+
+.control-button {
+  @apply relative flex items-center justify-center rounded-full bg-white shadow-2xl shadow-black/80;
+}
