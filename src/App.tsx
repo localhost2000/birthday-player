@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { data } from './tracks'
 
 export default function App() {
+  const baseUrl = import.meta.env.BASE_URL
   const trackRef = useRef<HTMLAudioElement | null>(null)
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
   const currentTrack = data[currentTrackIndex]
@@ -29,7 +30,7 @@ export default function App() {
 
   useEffect(() => {
     if (trackRef.current) {
-      trackRef.current.src = `/tracks/${currentTrack.name}.mp3`
+      trackRef.current.src = `${baseUrl}tracks/${currentTrack.name}.mp3`
     }
   }, [currentTrackIndex])
 
@@ -46,7 +47,7 @@ export default function App() {
   return (
     <main>
       <img
-        src={`/covers/${currentTrack.name}.png`}
+        src={`${baseUrl}covers/${currentTrack.name}.png`}
         alt={currentTrack.name}
         className={`backdrop-cover ${
           isPlaying ? 'scale-[2.5] opacity-100' : 'scale-[2.1] opacity-50'
@@ -56,7 +57,7 @@ export default function App() {
       <div className='controls order-1 max-[1400px]:order-2'>
         <button className='control-button size-14' onClick={handlePrev}>
           <img
-            src='/prev-icon.svg'
+            src={`${baseUrl}prev-icon.svg`}
             alt='Prev Track'
             className='absolute left-[47%] size-6 -translate-x-1/2'
           />
@@ -64,13 +65,13 @@ export default function App() {
         <button className='control-button size-22' onClick={handlePlay}>
           {isPlaying ? (
             <img
-              src='/pause-icon.svg'
+              src={`${baseUrl}pause-icon.svg`}
               alt='Pause Track'
               className='absolute left-[50%] size-8 -translate-x-1/2'
             />
           ) : (
             <img
-              src='/play-icon.svg'
+              src={`${baseUrl}play-icon.svg`}
               alt='Play Track'
               className='absolute left-[53%] size-8 -translate-x-1/2'
             />
@@ -78,7 +79,7 @@ export default function App() {
         </button>
         <button className='control-button size-14' onClick={handleNext}>
           <img
-            src='/next-icon.svg'
+            src={`${baseUrl}next-icon.svg`}
             alt='Next Track'
             className='absolute left-[53%] size-6 -translate-x-1/2'
           />
@@ -86,7 +87,7 @@ export default function App() {
       </div>
 
       <img
-        src={`/covers/${currentTrack.name}.png`}
+        src={`${baseUrl}covers/${currentTrack.name}.png`}
         alt={currentTrack.name}
         className='cover order-2 max-[1400px]:order-1'
       />
