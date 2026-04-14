@@ -54,7 +54,7 @@ export default function App() {
         }`}
       />
 
-      <div className='controls order-1 max-[1400px]:order-2'>
+      <div className='controls'>
         <button className='control-button size-14' onClick={handlePrev}>
           <img
             src={`${baseUrl}prev-icon.svg`}
@@ -86,13 +86,15 @@ export default function App() {
         </button>
       </div>
 
-      <img
-        src={`${baseUrl}covers/${currentTrack.name}.png`}
-        alt={currentTrack.name}
-        className='cover order-2 max-[1400px]:order-1'
-      />
+      <div className='cover'>
+        <img
+          src={`${baseUrl}covers/${currentTrack.name}.png`}
+          alt={currentTrack.name}
+          className='size-full object-cover'
+        />
+      </div>
 
-      <div className='playlist order-3'>
+      <div className='playlist'>
         {data.map((track, index) => (
           <button
             key={track.id}
