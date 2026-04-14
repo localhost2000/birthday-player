@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
+import Sign from './components/Sign'
 import { data } from './tracks'
 
 export default function App() {
   const baseUrl = import.meta.env.BASE_URL
   const trackRef = useRef<HTMLAudioElement | null>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0)
   const currentTrack = data[currentTrackIndex]
-  const [isPlaying, setIsPlaying] = useState(false)
 
   const handlePlay = () => {
     if (!trackRef.current) return
@@ -90,7 +91,7 @@ export default function App() {
         <img
           src={`${baseUrl}covers/${currentTrack.name}.png`}
           alt={currentTrack.name}
-          className='size-full object-cover'
+          className='size-full object-cover max-[1400px]:max-w-[700px]'
         />
       </div>
 
@@ -112,6 +113,8 @@ export default function App() {
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       />
+
+      <Sign />
     </main>
   )
 }
