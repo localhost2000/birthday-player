@@ -17,7 +17,7 @@ button {
 }
 
 .backdrop-cover {
-  @apply absolute -z-10 size-full animate-spin object-contain blur-xl brightness-75 transition-all duration-500 [animation-duration:44s];
+  @apply absolute -z-10 size-full animate-spin object-contain blur-xl brightness-75 transition-all duration-500 [animation-duration:44s] max-[1400px]:[animation-duration:14s];
 }
 
 .cover {

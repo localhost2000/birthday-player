@@ -11,13 +11,11 @@ export default function App() {
   const handlePlay = () => {
     if (!trackRef.current) return
 
-    if (isPlaying) {
-      trackRef.current.pause()
-    } else {
+    if (trackRef.current.paused) {
       trackRef.current.play()
+    } else {
+      trackRef.current.pause()
     }
-
-    setIsPlaying(!isPlaying)
   }
 
   const handleNext = () => {
@@ -29,9 +27,11 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (trackRef.current) {
-      trackRef.current.src = `${baseUrl}tracks/${currentTrack.name}.mp3`
-    }
+    if (!trackRef.current) return
+
+    trackRef.current.src = `${baseUrl}tracks/${currentTrack.name}.mp3`
+
+    trackRef.current.play()
   }, [currentTrackIndex])
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function App() {
     } else {
       trackRef.current.pause()
     }
-  }, [isPlaying, currentTrackIndex])
+  }, [isPlaying])
 
   return (
     <main>
