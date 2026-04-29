@@ -30,7 +30,7 @@ export default function App() {
   useEffect(() => {
     if (!trackRef.current) return
 
-    trackRef.current.src = `${baseUrl}tracks/${currentTrack.name}.mp3`
+    trackRef.current.src = `${baseUrl}/tracks/${currentTrack.name}.mp3`
 
     trackRef.current.play()
   }, [currentTrackIndex])
@@ -48,7 +48,7 @@ export default function App() {
   return (
     <main>
       <img
-        src={`${baseUrl}covers/${currentTrack.name}.png`}
+        src={`${baseUrl}/covers/${currentTrack.name}.png`}
         alt={currentTrack.name}
         className={`backdrop-cover ${
           isPlaying ? 'scale-[2.5] opacity-100' : 'scale-[2.1] opacity-50'
@@ -58,7 +58,7 @@ export default function App() {
       <div className='controls'>
         <button className='control-button size-14' onClick={handlePrev}>
           <img
-            src={`${baseUrl}prev-icon.svg`}
+            src={`${baseUrl}/prev-icon.svg`}
             alt='Prev Track'
             className='absolute left-[47%] size-6 -translate-x-1/2'
           />
@@ -66,13 +66,13 @@ export default function App() {
         <button className='control-button size-22' onClick={handlePlay}>
           {isPlaying ? (
             <img
-              src={`${baseUrl}pause-icon.svg`}
+              src={`${baseUrl}/pause-icon.svg`}
               alt='Pause Track'
               className='absolute left-[50%] size-8 -translate-x-1/2'
             />
           ) : (
             <img
-              src={`${baseUrl}play-icon.svg`}
+              src={`${baseUrl}/play-icon.svg`}
               alt='Play Track'
               className='absolute left-[53%] size-8 -translate-x-1/2'
             />
@@ -80,7 +80,7 @@ export default function App() {
         </button>
         <button className='control-button size-14' onClick={handleNext}>
           <img
-            src={`${baseUrl}next-icon.svg`}
+            src={`${baseUrl}/next-icon.svg`}
             alt='Next Track'
             className='absolute left-[53%] size-6 -translate-x-1/2'
           />
@@ -89,7 +89,7 @@ export default function App() {
 
       <div className='cover'>
         <img
-          src={`${baseUrl}covers/${currentTrack.name}.png`}
+          src={`${baseUrl}/covers/${currentTrack.name}.png`}
           alt={currentTrack.name}
           className='size-full object-cover max-[1400px]:max-w-[700px]'
         />
